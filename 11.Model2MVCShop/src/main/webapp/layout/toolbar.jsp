@@ -99,7 +99,15 @@
    	
    	
    	<script type="text/javascript">
-	
+		
+     	//==> 최근본상품
+		 function history(){
+			popWin = window.open("/history.jsp",
+								 "popWin",
+								 "left=300, top=200, width=300, height=200, marginwidth=0, marginheight=0, scrollbars=no, scrolling=no, menubar=no, resizable=no");
+		 }
+   	
+   	
 		//============= logout Event  처리 =============	
 		 $(function() {
 			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
@@ -126,14 +134,27 @@
 		
 	 	//=============  판매상품등록 Event  처리 =============	
 	 	$( "a:contains('판매상품등록')" ).on("click" , function() {
-	 		//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
 			$(self.location).attr("href","/product/addProduct");
 		});
 	 	
 	 	//=============  판매상품관리 Event  처리 =============	
 	 	$( "a:contains('판매상품관리')" ).on("click" , function() {
-	 		//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-			$(self.location).attr("href","/product/listSale");
+			$(self.location).attr("href","/product/listSale?menu=manag");
+		});
+	 	
+	 	//=============  상 품 검 색 Event  처리 =============	
+	 	$( "a:contains('상 품 검 색')" ).on("click" , function() {
+			$(self.location).attr("href","/product/listProduct?menu=search");
+		});
+	 	
+	 	//=============  구매이력조회 Event  처리 =============	
+	 	$( "a:contains('구매이력조회')" ).on("click" , function() {
+			$(self.location).attr("href","/purchase/listPurchase");
+		});
+	 	
+	 	//=============  최근 본 상품 Event  처리 =============	
+	 	$( "a:contains('최근 본 상품')" ).on("click" , function() {
+	 		history();
 		});
 		
 		

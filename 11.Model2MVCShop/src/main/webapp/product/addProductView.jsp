@@ -26,6 +26,15 @@
 	<!-- Bootstrap Dropdown Hover JS -->
     <script src="/javascript/bootstrap-dropdownhover.min.js"></script>
 	
+	<!-- Bootstrap Datepicker JS -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  	<link rel="stylesheet" href="/resources/demos/style.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  	
+  	
+  	
+  	
 	<!--  ///////////////////////// CSS ////////////////////////// -->
 	<style>
        body > div.container{
@@ -70,14 +79,18 @@
 		
 		$(function() {	
 			// "취소"  Event 처리 및  연결
-			$( "td.ct_btn01:contains('취소')" ).on("click" , function() {
+			$("a[href='#' ]").on("click" , function() {
 				$("form")[0].reset();
-			});
+			});	
 			
 			// "등록"  Event 처리 및  연결
-			$( "td.ct_btn01:contains('등록')" ).on("click" , function() {
+			$( "button.btn.btn-primary" ).on("click" , function() {	
 				fncAddProduct();
 			});
+			
+			// Bootstrap Datepicker JS
+			$( "#manuDate" ).datepicker({ dateFormat: 'yy-mm-dd' });
+		  
 		});
 		
 	</script>
@@ -101,40 +114,35 @@
 			<div class="form-group">
 		    	<label for="prodName" class="col-sm-offset-1 col-sm-3 control-label">상품명</label>
 		     	<div class="col-sm-4">
-		      		<input type="text" class="form-control" id="prodName" name="prodName" placeholder="상품명">
+		      		<input type="text" class="form-control" id="prodName" name="prodName" placeholder="상품명을 입력하세요">
 		     	</div>
 		   	</div>
 		   	
 		   	<div class="form-group">
 		    	<label for="prodDetail" class="col-sm-offset-1 col-sm-3 control-label">상품상세정보</label>
 		     	<div class="col-sm-4">
-		      		<input type="text" class="form-control" id="prodDetail" name="prodDetail" placeholder="상품상세정보">
+		      		<input type="text" class="form-control" id="prodDetail" name="prodDetail" placeholder="상품상세정보를 입력하세요">
 		     	</div>
 		   	</div>
 		   	
 		   	<div class="form-group">
 		    	<label for="manuDate" class="col-sm-offset-1 col-sm-3 control-label">제조일자</label>
-		    	
 		     	<div class="col-sm-4">
-		      		
-		      		<img src="../images/ct_icon_date.gif" width="15" height="15" 
-								   onclick="show_calendar('document.detailForm.manuDate', document.detailForm.manuDate.value)"/>
-		      		<input type="text" class="form-control" id="manuDate" name="manuDate" placeholder="제조일자">
-		      			
+		      		<input type="text" class="form-control" id="manuDate" name="manuDate" placeholder="제조일자를 입력하세요">	
 		     	</div>
 		   	</div>
 		   	
 		   	<div class="form-group">
-		    	<label for="price" class="col-sm-offset-1 col-sm-3 control-label">가격</label>
+		    	<label for="price" class="col-sm-offset-1 col-sm-3 control-label">가격(원)</label>
 		     	<div class="col-sm-4">
-		      		<input type="text" class="form-control" id="price" name="price" placeholder="가격">&nbsp;원
+		      		<input type="text" class="form-control" id="price" name="price" placeholder="가격을 입력하세요">
 		     	</div>
 		   	</div>
 
 			<div class="form-group">
 		    	<label for="fileName" class="col-sm-offset-1 col-sm-3 control-label">상품이미지</label>
 		     	<div class="col-sm-4">
-		      		<input type="text" class="form-control" id="fileName" name="fileName" placeholder="상품이미지">
+		      		<input type="text" class="form-control" id="fileName" name="fileName" placeholder="상품이미지를 입력하세요">
 		     	</div>
 		   	</div>
 		   	
